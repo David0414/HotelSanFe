@@ -1,0 +1,118 @@
+/* src/assets/CrearHabitacion.css */
+.crear-habitacion-container {
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .crear-habitacion-card {
+    width: 100%;
+    max-width: 550px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .crear-habitacion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .crear-habitacion-title {
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .crear-habitacion-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #dc3545;
+  }
+  
+  .crear-habitacion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .crear-habitacion-input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .crear-habitacion-label {
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 0.5rem;
+  }
+  
+  .crear-habitacion-input {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .crear-habitacion-input:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    outline: none;
+  }
+  
+  .crear-habitacion-file-input {
+    border: 1px dashed #ced4da;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .crear-habitacion-file-input:hover {
+    background-color: rgba(220, 53, 69, 0.05);
+  }
+  
+  .crear-habitacion-submit-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+  }
+  
+  .crear-habitacion-submit-btn:hover {
+    background-color: #b52b3a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 576px) {
+    .crear-habitacion-card {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+  
+    .crear-habitacion-input {
+      padding: 0.6rem 0.8rem;
+    }
+  }

@@ -1,0 +1,541 @@
+/* src/assets/styles.css */
+:root {
+  --primary-color: #dc3545;
+  --primary-hover: #b52b3a;
+  --secondary-color: #343a40;
+  --light-color: #f8f9fa;
+  --accent-color: #ffb400;
+  --text-dark: #343a40;
+  --text-light: #f8f9fa;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-color);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: rgba(33, 37, 41, 0.95) !important;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 0;
+  transition: var(--transition);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text-light) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  margin: 0 5px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-dark .navbar-nav .text-danger {
+  color: var(--primary-color) !important;
+}
+
+/* Logo Styling */
+.logo {
+  height: 45px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Hero Section / Carousel */
+.hero {
+  position: relative;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow);
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.carousel img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  bottom: 25%;
+  z-index: 10;
+}
+
+.carousel-caption h1 {
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  max-width: 80%;
+  margin: 0 auto 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Buttons */
+.custom-btn {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-btn:hover {
+  background-color: var(--primary-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Section Headers */
+h2.text-center {
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 2rem;
+}
+
+h2.text-center::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+/* Card Styling */
+.service-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card .card-body {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.service-card .card-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+/* Habitaciones Cards */
+.habitacion-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .habitacion-img {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  margin: 0 10px;
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel img {
+    height: 50vh;
+  }
+  
+  .carousel-caption {
+    bottom: 10%;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+  
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* Estilos adicionales para el Panel de Administración */
+.admin-dashboard {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* Navbar de Administración */
+.admin-navbar {
+  background: linear-gradient(to right, var(--secondary-color), #1d2124) !important;
+  border-bottom: 3px solid var(--primary-color);
+  padding: 0.7rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-navbar .navbar-brand i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+/* Panel contenedor */
+.admin-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Encabezados de sección */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eaedf0;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.section-header h4 {
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.section-header h4 i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+/* Tablas estilizadas */
+.admin-table {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.admin-table thead {
+  background-color: #f8f9fa;
+}
+
+.admin-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.admin-table td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+}
+
+.admin-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(220, 53, 69, 0.03);
+}
+
+/* Badges para estados */
+.badge {
+  padding: 0.5em 0.75em;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.badge-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.badge-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.badge-danger {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Botones de acción */
+.btn-action {
+  padding: 0.4rem 0.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-add {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-add i {
+  margin-right: 5px;
+}
+
+.btn-add:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+  color: #212529;
+}
+
+.btn-delete {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .admin-content {
+    padding: 1rem;
+  }
+  
+  .admin-table {
+    font-size: 0.9rem;
+  }
+  
+  .btn-action {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+
+/* Estilos adicionales para el Login de Administración */
+.admin-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  padding: 2rem 1rem;
+}
+
+.admin-login-card {
+  width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.admin-login-card:hover {
+  transform: translateY(-5px);
+}
+
+.admin-login-header {
+  background: linear-gradient(to right, var(--secondary-color), #1d2124);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.admin-login-header h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.admin-login-header p {
+  margin-top: 0.5rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.admin-login-body {
+  padding: 2rem;
+}
+
+.admin-form-control {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.admin-form-label {
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.admin-login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  background: var(--primary-color);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+  transition: all 0.3s ease;
+}
+
+.admin-login-btn:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+  transform: translateY(-2px);
+}
+
+.admin-login-alert {
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+.admin-login-footer {
+  text-align: center;
+  padding-top: 1rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .admin-login-card {
+    width: 100%;
+  }
+  
+  .admin-login-header h2 {
+    font-size: 1.5rem;
+  }
+}
