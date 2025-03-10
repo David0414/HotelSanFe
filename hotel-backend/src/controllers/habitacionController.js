@@ -97,21 +97,83 @@ exports.actualizarHabitacion = async (req, res) => {
             return res.status(400).json({ message: "El precio debe ser un número válido." });
         }
 
-        const habitacion = await prisma.habitacion.update({
+        // ✅ Verificar si la habitación existe
+        const habitacionExistente = await prisma.habitacion.findUnique({
+            where: { id: parseInt(id) },
+            include: { imagenes: true },
+        });
+
+        if (!habitacionExistente) {
+            return res.status(404).json({ message: "Habitación no encontrada." });
+        }
+
+        // ✅ Manejo de imágenes: Si se suben nuevas imágenes, subirlas a Cloudinary
+        let imagenesSubidas = [];
+        if (req.files && req.files.length > 0) {
+            for (const file of req.files) {
+                const imagenSubida = await cloudinary.uploader.upload(file.path);
+                imagenesSubidas.push({ url: imagenSubida.secure_url });
+            }
+
+            // ✅ Eliminar imágenes antiguas de la BD (pero no de Cloudinary, si deseas eliminarlas de Cloudinary, deberías guardar los public_ids en la BD)
+            await prisma.imagen.deleteMany({
+                where: { habitacionId: parseInt(id) },
+            });
+        }
+
+        // ✅ Actualizar la habitación
+        const habitacionActualizada = await prisma.habitacion.update({
             where: { id: parseInt(id) },
             data: {
                 tipo,
                 precio: precio ? parseFloat(precio) : undefined,
+                imagenes: imagenesSubidas.length > 0 ? { create: imagenesSubidas } : undefined,
             },
             include: { imagenes: true },
         });
 
-        res.json({ message: "Habitación actualizada con éxito", habitacion });
+        res.json({ message: "Habitación actualizada con éxito", habitacion: habitacionActualizada });
     } catch (error) {
         console.error("❌ Error al actualizar la habitación:", error);
         res.status(500).json({ message: "Error interno del servidor." });
     }
 };
+
+
+
+
+/**
+ * 📌 Eliminar una imagen de una habitación
+ */
+exports.eliminarImagenHabitacion = async (req, res) => {
+    const { id, imagenId } = req.params;
+
+    try {
+        const imagen = await prisma.imagen.findUnique({
+            where: { id: parseInt(imagenId) },
+        });
+
+        if (!imagen) {
+            return res.status(404).json({ message: "Imagen no encontrada." });
+        }
+
+        // ✅ Eliminar imagen de Cloudinary
+        const publicId = imagen.url.split('/').pop().split('.')[0]; 
+        await cloudinary.uploader.destroy(`hotel-habitaciones/${publicId}`);
+
+        // ✅ Eliminar imagen de la BD
+        await prisma.imagen.delete({
+            where: { id: parseInt(imagenId) },
+        });
+
+        res.json({ message: "Imagen eliminada con éxito." });
+    } catch (error) {
+        console.error("❌ Error al eliminar la imagen:", error);
+        res.status(500).json({ message: "Error interno del servidor." });
+    }
+};
+
+
 
 /**
  * 📌 Eliminar una habitación

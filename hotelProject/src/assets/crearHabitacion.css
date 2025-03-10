@@ -104,6 +104,36 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
   }
+
+
+
+  /* 🔹 Estilo para el contenedor del botón Volver */
+.volver-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+/* 🔹 Estilo del botón Volver */
+.volver-boton {
+    font-size: 16px;
+    color: #6c757d;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.volver-boton:hover {
+    color: #dc3545;
+}
+
+
+  
   
   /* Responsive Adjustments */
   @media (max-width: 576px) {

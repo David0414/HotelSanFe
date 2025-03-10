@@ -54,7 +54,7 @@ const Home = () => {
                                 )}
                             </NavDropdown>
                             <Nav.Link href="#servicios" className="text-danger">Servicios</Nav.Link>
-                            <Nav.Link href="#carta" className="text-danger">Restaurante</Nav.Link>
+                            <Nav.Link href="#restaurante" className="text-danger">Restaurante</Nav.Link>
                             <Nav.Link href="#contacto" className="text-danger">Contacto</Nav.Link>
                             <Nav.Link href="#ubicacion" className="text-danger">Ubicación</Nav.Link>
                         </Nav>

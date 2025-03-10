@@ -1,0 +1,152 @@
+/* src/assets/ActualizarHabitacion.css */
+.actualizar-habitacion-container {
+    background-color: #f4f6f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .actualizar-habitacion-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .actualizar-habitacion-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+  }
+  
+  .actualizar-habitacion-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .actualizar-habitacion-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #dc3545;
+  }
+  
+  .actualizar-habitacion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .actualizar-habitacion-input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .actualizar-habitacion-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .actualizar-habitacion-input {
+    border: 1px solid #e0e4e8;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+  }
+  
+  .actualizar-habitacion-input:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.1);
+    outline: none;
+  }
+  
+  .actualizar-habitacion-file-input {
+    border: 2px dashed #e0e4e8;
+    background-color: #f9fafb;
+    padding: 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .actualizar-habitacion-file-input:hover {
+    background-color: rgba(220, 53, 69, 0.02);
+    border-color: #dc3545;
+  }
+  
+  .actualizar-habitacion-preview {
+    margin-top: 1rem;
+  }
+  
+  .actualizar-habitacion-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .actualizar-habitacion-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .actualizar-habitacion-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .actualizar-habitacion-submit-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+  }
+  
+  .actualizar-habitacion-submit-btn:hover {
+    background-color: #b52b3a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .actualizar-habitacion-card {
+      padding: 2rem 1.5rem;
+      margin: 1rem;
+      width: calc(100% - 2rem);
+    }
+  
+    .actualizar-habitacion-img {
+      width: 100px;
+      height: 100px;
+    }
+  }

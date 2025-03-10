@@ -1,0 +1,169 @@
+/* Estilos para la página del restaurante con fondo en transición */
+.restaurante-container {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  text-align: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Contenedor principal para añadir superposición semitransparente */
+.content-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Superposición oscura para mejorar legibilidad */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section */
+.restaurante-hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.restaurante-hero .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3rem;
+  border-radius: 10px;
+  max-width: 80%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.restaurante-hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.restaurante-hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+/* Botones personalizados */
+.custom-btn {
+  background-color: var(--primary-color, #e63946);
+  border: none;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: var(--primary-dark, #c1121f);
+}
+
+/* Sección de Especialidades */
+.section-background {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin: 2rem 0;
+}
+
+.section-background h2 {
+  color: var(--primary-color, #e63946);
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.img-container {
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.restaurante-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover .restaurante-img {
+  transform: scale(1.1);
+}
+
+.service-card .card-body {
+  padding: 1.5rem;
+}
+
+.service-card .card-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--primary-color, #e63946);
+}
+
+/* Sección de Contacto */
+.restaurante-contacto {
+  color: white;
+  padding: 4rem 0;
+  margin-top: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.restaurante-contacto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.restaurante-contacto p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .restaurante-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .restaurante-hero .overlay {
+    padding: 2rem;
+    max-width: 90%;
+  }
+  
+  .section-background {
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+  }
+  
+  .restaurante-contacto {
+    padding: 3rem 1rem;
+  }
+}

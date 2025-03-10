@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Container, Button, } from "react-bootstrap";
+import { FaArrowLeft } from "react-icons/fa";
+
 import '../../assets/CrearHabitacion.css'; // Import the new CSS file
 
 const CrearHabitacion = () => {
@@ -36,7 +39,7 @@ const CrearHabitacion = () => {
     const formData = new FormData();
     formData.append("tipo", tipo);
     formData.append("precio", precio);
-    
+
     // Agregar imágenes al FormData
     for (let i = 0; i < imagenes.length; i++) {
       formData.append("imagenes", imagenes[i]);
@@ -62,6 +65,18 @@ const CrearHabitacion = () => {
 
   return (
     <div className="crear-habitacion-container">
+
+      {/* 🔹 Botón Volver en la esquina superior izquierda */}
+      <div className="volver-container">
+        <Button
+          variant="link"
+          className="volver-boton"
+          onClick={() => navigate(-1)}
+        >
+          <FaArrowLeft className="me-2" /> Volver
+        </Button>
+      </div>
+
       <div className="crear-habitacion-card">
         <h2 className="crear-habitacion-title">Crear Nueva Habitación</h2>
         <form onSubmit={handleSubmit} className="crear-habitacion-form">
