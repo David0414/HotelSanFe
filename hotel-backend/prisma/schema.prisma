@@ -7,37 +7,40 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Habitacion {
+model admin {
   id        Int      @id @default(autoincrement())
-  tipo      String
-  precio    Float
-  imagenes  Imagen[] // ✅ Relación con el modelo `Imagen`
-  reservas  Reserva[]
-}
-
-model Imagen {
-  id          Int        @id @default(autoincrement())
-  url         String     // ✅ Aquí guardamos la URL de la imagen
-  habitacion  Habitacion @relation(fields: [habitacionId], references: [id])
-  habitacionId Int
-}
-
-model Reserva {
-  id          Int      @id @default(autoincrement())
-  cliente     String
-  telefono    String
-  email       String
-  habitacion  Habitacion @relation(fields: [habitacionId], references: [id])
-  habitacionId Int
-  fechaInicio DateTime
-  fechaFin    DateTime
-  createdAt   DateTime @default(now())
-}
-
-
-model Admin {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+  email     String   @unique(map: "Admin_email_key")
+  password  String
   createdAt DateTime @default(now())
+}
+
+model habitacion {
+  id      Int       @id @default(autoincrement())
+  tipo    String
+  precio  Float
+  imagenes  imagen[]
+  reserva reserva[]
+}
+
+model imagen {
+  id           Int        @id @default(autoincrement())
+  url          String
+  habitacionId Int
+  habitacion   habitacion @relation(fields: [habitacionId], references: [id], map: "Imagen_habitacionId_fkey")
+
+  @@index([habitacionId], map: "Imagen_habitacionId_fkey")
+}
+
+model reserva {
+  id           Int        @id @default(autoincrement())
+  cliente      String
+  telefono     String
+  email        String
+  habitacionId Int
+  fechaInicio  DateTime
+  fechaFin     DateTime
+  createdAt    DateTime   @default(now())
+  habitacion   habitacion @relation(fields: [habitacionId], references: [id], map: "Reserva_habitacionId_fkey")
+
+  @@index([habitacionId], map: "Reserva_habitacionId_fkey")
 }
